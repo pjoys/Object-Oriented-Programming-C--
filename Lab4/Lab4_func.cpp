@@ -53,6 +53,12 @@ bool isGreaterThan(double x, int y)
     double x1 = x;
     int y1 = y;
 
+    if(x > y) {
+        return true;
+    }
+    else {
+        return false;
+    }
 
 }
 
@@ -123,7 +129,7 @@ int main()
     myPrint("division", div_out);
 
     // compare div_out and sum_out
-    bool is_greater_out = isGreaterThan (div_out, sum_out);
+    bool is_greater_out = isGreaterThan(div_out, sum_out);
     myPrint("comparison", is_greater_out);
     return 0;
 }
