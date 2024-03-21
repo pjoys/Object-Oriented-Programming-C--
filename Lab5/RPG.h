@@ -1,5 +1,6 @@
 #ifndef RPH_H
 #define RPG_H
+#include <string>
 
 using namespace std;
 
