@@ -9,7 +9,10 @@ using namespace std;
 */
 
 void printMemVec(vector<int> v) {
-    printf("Vector - Each int is worth %lu bytes\n")
+    printf("Vector - Each int is worth %lu bytes\n", sizeof(v[0]));
+    for(int i = 0; i < v.size(); i++) {
+        printf("Value :%i at Memory Location: %p\n", v[i], &v + i);
+    }
 }
 
 /**
@@ -18,37 +21,38 @@ void printMemVec(vector<int> v) {
  * @param v - address to a vector of integers
 */
 
-void incVecBy10() {
-    const int SIZE = 10;
-    vector<int> v(SIZE);
+void incVecBy10(vector<int> & v) {
 
-    for(int i = 0; i < SIZE; i++){
-        v.push_back(i + 1);
+    for(int i = 0; i < v.size(); i++){
+        v[i] += 10;
     }
 }
 
 int main() {
-    // create constant int called SIZE, value 5
+    const int SIZE = 5;
+    vector<int> vec;
+    for(int i = 0; i < SIZE; i ++) {
+        vec[i] = 100 + i;
+        // vec.push_back(100+i);
+    }
+    printf("Before------------\n");
+    printMemVec(vec);
+    incVecBy10(vec);
 
-    // create vector of int called vec that can hold up to 5 elem
-
-    printf("Before Increment ----------\n");
-    // call printMemVec() on vec
-
-    // call incBy10() on vec
-
-    printf("After Increment------------\n");
-    // call printMemVec on vec, view changes
+    printf("After------------\n");
+    printMemVec(vec);
 
     //remove last elem of vec
-
+    vec.pop_back();
     printf("After Pop------------\n");
-    // call printMemVec() to view changes
+    printMemVec(vec);
 
     //append 101 and 102 at the end of vec
+    vec.push_back(101);
+    vec.push_back(102);
 
     printf("After Push------------\n");
-    // call printMemVec() on vec again to view changes
+    printMemVec(vec);
 
     return 0;
 }
