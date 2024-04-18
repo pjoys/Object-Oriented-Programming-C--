@@ -34,10 +34,14 @@ int main(){
         vec[i] = 100 + i;
     }
 
-    printf("Before------------\n");
+    printf("Before Increment------------\n");
     printMemVec(vec, SIZE);
     incVecBy10(vec, SIZE);
-    printf("After------------\n");
+    printf("After Increment------------\n");
+    printMemVec(vec, SIZE);
+    printf("Before Pop------------\n");
+    printMemVec(vec, SIZE);
+    printf("Afte Pushr------------\n");
     printMemVec(vec, SIZE);
     return 0;
 }
