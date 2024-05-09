@@ -2,10 +2,7 @@
 #include "Pokemon.h"
 using namespace std;
 
-/**
- * @brief construct a new pokemon:: pokemon object
-*/
-
+//constructs pokemon object
 Pokemon::Pokemon(){
     name = "unidentified";
     hp = 0;
@@ -14,15 +11,17 @@ Pokemon::Pokemon(){
     cout << "Default Constructor (Pokemon)\n";
 }
 
+// new pokemon object with parameters
 Pokemon::Pokemon(string name, int hp, int att, int def, vector<string> type){
     this->name = name;
     this->hp = hp;
     attack = att;
-    defense def;
+    defense = def;
     type = type;
     cout << "Overloaded Constructor (Pokemon)\n";
 }
 
+// says whatever this pokemon normally says
 void Pokemon::speak(){
     cout << "...\n";
 }
