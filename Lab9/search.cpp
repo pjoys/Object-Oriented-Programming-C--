@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include <ctime>
+#include <chrono>
 using namespace std;
 
 /**
@@ -17,7 +17,7 @@ using namespace std;
 
 int iterativeSearch(vector<int>v, int elem){
     // use a for loop where the index, i goes from 0 to the size of v
-
+    for(int i = 0; i < )
     // inside the for loop, use an if statement to check whether the elem at i (e.g v[i]) equals elem
     // inside the if statement return i
 
@@ -116,5 +116,5 @@ int main(){
     // it takes for binarySearch to do the same operation
 
 
-    
+
 }
