@@ -101,3 +101,60 @@ const int RPG::getDefense()
     return defense;
 };
 
+/**
+ * @brief attack decreases the opponent's health by (strength - opponent's defense)
+ * In other workds, the opponent's defense should soften the blow from the attack
+ * 
+ * For example, if opponent's health is 100, opponent's defense is 5, and player's
+ * strength is 20, then after the attacl, opponent's health should be
+ * 85 (i.e. 100 - (20-5)).
+ * 
+ * First calculate the opponent's health, then use (*opponent).getUpdate(hew_health)
+ * to update their health.
+ * 
+ * @param opponent
+ * 
+*/
+
+void RPG::attack(RPG * opponent){
+    // implement brief
+    int oppHealth = (*opponent).getHealth();
+    int oppDefense = (*opponent).getDefense();
+
+    int new_health = 0;
+
+    if(strength - oppDefense > 0){
+        int new_health = oppHealth - (strength - oppDefense);
+        (*opponent).updateHealth(new_health);
+    } else {
+        int new_health = oppHealth - 0;
+        (*opponent).updateHealth(new_health);
+    }
+};
+
+
+/**
+ * @brief Prompts the user to choose a skill and calls printAction() and attack()
+ * 
+ * @param opponent
+*/
+
+void RPG::useSkill(RPG * opponent){
+    for(int i = 0; i < SKILL_SIZE; i++){
+        printf("Skill %i: %s\n", i, skills[i].c_str());
+        i++;
+    };
+
+    int chosen_skill_index;
+    printf("Choose a skill to use: Enter 0 or 1\n");
+
+    cin >> chosen_skill_index;
+
+    string chosen_skill = skills[chosen_skill_index];
+
+    printAction(string chosen_skill, RPG(*opponent));
+
+    
+};
+
+
